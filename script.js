@@ -408,7 +408,7 @@ console.log(huge + 'is REALLY big!!!');
 console.log(11n / 3n);
 console.log(10 / 3);
 
-*/
+
 
 /////// Creating dates //////////
 
@@ -422,3 +422,69 @@ console.log(new Date('December 24, 2015'));
 
 console.log(new Date(account1.movementsDates[0]));
 console.log(new Date(2037, 10, 19, 15, 23, 5));
+
+
+// Working with dates
+
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+
+// Get
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString()); // it's a date string
+console.log(future.getTime()); // time stamp for the date - the miliseconds that have passed since Jan 01 1970
+
+console.log(new Date(2142249780000));
+
+console.log(Date.now());
+
+// Set
+
+future.setFullYear(2040);
+console.log(future);
+
+
+////// Operations with Dates //////
+
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(Number(future));
+console.log(+future);
+
+const calcDaysPassed = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
+const days3 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
+
+console.log(days1);
+console.log(days3);
+*/
+
+//////////////// Timers ////////////////////
+
+// setTimeout function
+
+const ingredients = ['olives', 'spinach'];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) =>
+    console.log(`'Here is your pizza 🍕 with ${ing1} and ${ing2}'`),
+  3000,
+  ...ingredients
+); // this will start counting and move on to the next line
+
+console.log('Waiting....'); // This will show up first. Callsed Async JS
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+// setInterval - displays the date every second
+
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
